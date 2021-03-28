@@ -1,10 +1,10 @@
-import {app, BrowserWindow, globalShortcut} from 'electron'
+import {app, BrowserWindow, globalShortcut, Menu, Tray} from 'electron'
 
 let win = null
 
 app.on('ready', () => {
     win = new BrowserWindow()
-    // win.setAlwaysOnTop(true, undefined, undefined)
+    win.setAlwaysOnTop(true, undefined, undefined)
     win.loadURL('http://localhost:5656/')
 })
 
@@ -22,10 +22,28 @@ app.whenReady().then(() => {
     globalShortcut.register('Alt+I', () => {
         if (win.isFocused() == false) {
             win.focus()
+            win.show()
         } else {
             win.minimize()
+            win.hide()
         }
     })
+})
+
+let tray = null
+app.whenReady().then(() => {
+    tray = new Tray('icon.png')
+    const contextMenu = Menu.buildFromTemplate([
+        {label: 'Item1', type: 'radio'},
+        {label: 'Item2', type: 'radio'},
+        {label: 'Item3', type: 'radio', checked: true},
+        {label: 'Item4', type: 'radio'}
+    ])
+    tray.setToolTip('This is my application.')
+    tray.setContextMenu(contextMenu)
+    tray.on('double-click', function () {
+        console.log('DoubleClicked')
+    });
 })
 
 app.on('window-all-closed', () => {
