@@ -1,2 +1,7 @@
-<h1>Hello World</h1>
-<textarea autofocus></textarea>
+<span>
+  <form method="POST">
+    <!-- Flask `request.form['__name__']` -->
+    <textarea autofocus name="data">{{ data }}</textarea>
+    <input name="판정" type="submit" />
+  </form>
+</span>
