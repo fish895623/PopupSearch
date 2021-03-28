@@ -1,4 +1,4 @@
-import {app, BrowserWindow, globalShortcut, Menu, Tray} from 'electron'
+import { app, BrowserWindow, globalShortcut, Menu, Tray } from 'electron'
 
 let win = null
 
@@ -34,16 +34,16 @@ let tray = null
 app.whenReady().then(() => {
     tray = new Tray('icon.png')
     const contextMenu = Menu.buildFromTemplate([
-        {label: 'Item1', type: 'radio'},
-        {label: 'Item2', type: 'radio'},
-        {label: 'Item3', type: 'radio', checked: true},
-        {label: 'Item4', type: 'radio'}
+        { label: 'Item1', type: 'radio' },
+        { label: 'Item2', type: 'radio' },
+        { label: 'Item3', type: 'radio', checked: true },
+        { label: 'Item4', type: 'radio' },
     ])
     tray.setToolTip('This is my application.')
     tray.setContextMenu(contextMenu)
     tray.on('double-click', function () {
         console.log('DoubleClicked')
-    });
+    })
 })
 
 app.on('window-all-closed', () => {
