@@ -17,6 +17,7 @@ app.on('browser-window-focus', () => {
     })
 })
 
+// 어플에 포커스 되어 있으면 최소화
 app.whenReady().then(() => {
     globalShortcut.register('Alt+I', () => {
         if (win.isFocused() == false) {
