@@ -1,4 +1,4 @@
-import {app, BrowserWindow} from 'electron'
+import { app, BrowserWindow } from 'electron'
 
 let win = null
 app.on('ready', () => {
@@ -11,7 +11,7 @@ app.on('ready', () => {
 })
 
 app.on('window-all-closed', () => {
-    if (process.platform !== "darwin") {
+    if (process.platform !== 'darwin') {
         app.quit()
     }
 })
