@@ -18,7 +18,7 @@ def root_post():
     subprocess.Popen(
         [
             "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
-            "http://google.com/search?q={}".format(r),
+            "https://google.co.kr/search?q={}".format(r),
         ]
     )
     return render_template("index.html", data=r)
