@@ -16,7 +16,10 @@ def root_post():
     r = request.form["data"]
     # 검색 엔진별 ?search ~~ 이런것들의 기본적의 패턴을 작성
     subprocess.Popen(
-        ["C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe", r]
+        [
+            "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
+            "http://google.com/search?q={}".format(r),
+        ]
     )
     return render_template("index.html", data=r)
 
