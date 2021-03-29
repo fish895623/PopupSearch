@@ -1,19 +1,19 @@
 <span>
     <form method="POST">
         <!-- Flask `request.form['__name__']` -->
-        <textarea autofocus id="data" name="data">{{ data }}</textarea>
+        <textarea autofocus id="data" name="data"></textarea>
         <input name="판정" type="submit" id="submit" />
     </form>
-    <script type="text/javascript">
-        const ele = document.getElementById('data')
+    <script type="text/javascript" src="../bin/aaa.js">
+        // const ele = document.getElementById('data')
 
-        ele.addEventListener('keydown', function (e) {
-            const keyCode = e.which || e.keyCode
-            if (keyCode === 13 && !e.shiftKey) {
-                e.preventDefault()
-                var abc = document.getElementById('data').value
-                document.getElementById('submit').click()
-            }
-        })
+        // ele.addEventListener('keydown', function (e) {
+        //     const keyCode = e.which || e.keyCode
+        //     if (keyCode === 13 && !e.shiftKey) {
+        //         e.preventDefault()
+        //         var abc = document.getElementById('data').value
+        //         document.getElementById('submit').click()
+        //     }
+        // })
     </script>
 </span>
