@@ -3,7 +3,8 @@ import { app, BrowserWindow, globalShortcut, Menu, Tray } from 'electron'
 let win = null
 
 app.on('ready', () => {
-    win = new BrowserWindow()
+    // disable frame
+    win = new BrowserWindow({ frame: false })
     win.setAlwaysOnTop(true, undefined, undefined)
     win.loadURL('http://localhost:5656/')
 })
