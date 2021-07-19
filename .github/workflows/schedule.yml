@@ -3,12 +3,18 @@
 name: issue and pull_request
 
 # Controls when the workflow will run
-on:
-  schedule:
-    - cron: "0 */6 * * *"
+on: [push, pull_request]
 
 jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/stale@v4
+        with:
+          days-before-stale: 30
+          days-before-close: 5
+          stale-issue-message: This issue is stale because it has been open 30 days with no activity. Leave a comment or this will be closed in 5 days.
+          stale-pr-message: This PR is stale because it has been open 30 days with no activity. Leave a comment or this will be closed in 5 days
+          stale-issue-label: no-issue-activity
+          stale-pr-label: no-pr-activity
+          operations-per-run: 30
